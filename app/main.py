@@ -6,6 +6,9 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "It is running"}
 
 @app.post("/students", response_model=dict)
 async def create_student_endpoint(student: Student):
